@@ -12,11 +12,6 @@ from model import efficientnetv2_s as create_model
 def main():
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-    img_size = {"s": [300, 384],  # train_size, val_size
-                "m": [384, 480],
-                "l": [384, 480]}
-    num_model = "s"
-
     data_transform_png = transforms.Compose(
         [transforms.Resize((384, 384)),
          transforms.ToTensor(),
@@ -28,12 +23,15 @@ def main():
          transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])])
 
     # load image
-    img_path = "/Users/maojietang/Downloads/1-queen-chess-piece-ktsdesign.jpg"
+    img_path = "/Users/maojietang/Downloads/Test_1(100%)/train/bishop_resized/125_6cc58fb4d242103136854c4a895ca3ea.png"
     assert os.path.exists(img_path), "file: '{}' dose not exist.".format(img_path)
     img = Image.open(img_path)
-    plt.imshow(img)
+    channel = len(img.split())
+    if channel not in [3, 4]:
+        return print('Image Channel is not Match, the channel is {}'.format(channel))
     # [N, C, H, W]
-    if img_path[-3:] == 'png':
+    plt.imshow(img)
+    if channel == 4:
         img = data_transform_png(img)
         img = img[0:3, :, :]
     else:
@@ -51,7 +49,7 @@ def main():
     # create model
     model = create_model(num_classes=5).to(device)
     # load model weights
-    model_weight_path = "./EfficientV2_S.pth"
+    model_weight_path = "/Users/maojietang/Downloads/EfficientV2_S.pth"
     model.load_state_dict(torch.load(model_weight_path, map_location=device))
     model.eval()
     with torch.no_grad():
