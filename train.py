@@ -9,6 +9,7 @@ import torch.nn as nn
 from torchvision import datasets, transforms
 import matplotlib.pyplot as plt
 import torchvision.models as models
+from model import efficientnetv2_s
 
 
 
@@ -16,10 +17,13 @@ import torchvision.models as models
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 print('Using {} for this project'.format(device))
 
+# Initial_Part
+# weight_path = '/content/drive/MyDrive/pre_efficientnetv2-s.pth'
+weight_path = "/Users/maojietang/Downloads/pre_efficientnetv2-s.pth"
 # Image_Loader and Label
-# path_root = '/Users/maojietang/Downloads/Image_Segmentation-main/deep-learning-for-image-processing-master'
-path_root = '/content/drive/MyDrive'
-image_path = os.path.join(path_root, 'data_642')
+# path_root = '/content/drive/MyDrive'
+path_root = "/Users/maojietang/Downloads"
+image_path = os.path.join(path_root, 'Test_1(100%)')
 assert os.path.exists(image_path), "{} path does not exist.".format(image_path)
 
 data_transform = {
@@ -66,7 +70,8 @@ val_loader = torch.utils.data.DataLoader(val_dataset,
 # Model Initial
 # Transfer Learning
 model = efficientnetv2_s(num_classes=1000)
-model_path = torch.load('/content/drive/MyDrive/pre_efficientnetv2-s.pth')
+
+model_path = torch.load(weight_path)
 model.load_state_dict(model_path)
 model.head.classifier = nn.Sequential(
     nn.Linear(in_features=1280, out_features=1000, bias=True),
@@ -127,6 +132,5 @@ plt.plot(range(epochs), train_loss_curve, label='train')
 plt.legend()
 plt.show()
 print('Best Acc:{}'.format(best_acc))
-print('Transfer Learing: Add New and Train Last')
 
 
