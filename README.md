@@ -11,7 +11,7 @@ root directory
 ```
 
 ### Pre_trained weight Link
-https://drive.google.com/file/d/17cy3DBLCzv7T2yKHcWRmw4teHGm1DItb/view?usp=sharing
+https://drive.google.com/file/d/1J-BXGdK4lrFW6jyLKeQmnFgspNmOHQdu/view?usp=sharing
 
 ### Images Link
 https://drive.google.com/drive/folders/1H_1yIRQvgs7LziY2fX1Enhc_O0cUd36U?usp=sharing
