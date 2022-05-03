@@ -16,3 +16,6 @@ https://drive.google.com/file/d/1J-BXGdK4lrFW6jyLKeQmnFgspNmOHQdu/view?usp=shari
 
 ### Images Link
 https://drive.google.com/drive/folders/1H_1yIRQvgs7LziY2fX1Enhc_O0cUd36U?usp=sharing
+
+### Colab Link
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/WaitDumplings/ChessPieces_Classification/blob/master/ChessPiece.ipynb) <br> 
