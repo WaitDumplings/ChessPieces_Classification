@@ -11,7 +11,7 @@ root directory
 	└── predict.py             		# predict with one image
 ```
 
-### Pre_trained weight Link
+### Pre_trained weight Link (From ImageNet)
 https://drive.google.com/file/d/1J-BXGdK4lrFW6jyLKeQmnFgspNmOHQdu/view?usp=sharing
 
 ### Images Link
