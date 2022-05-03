@@ -4,10 +4,11 @@
 
 ```
 root directory
-	├── model.py               # construct EfficientV2_s
-	├── train.py               # train model
-	├── batch_predict.py       # predict with a batch of images
-	└── predict.py             # predict with one image
+	├── model.py               		# construct EfficientV2_s
+	├── Bayesian Optimization.py.py         # bayesian hyperparameter tuning
+	├── train.py               		# train model
+	├── batch_predict.py       		# predict with a batch of images
+	└── predict.py             		# predict with one image
 ```
 
 ### Pre_trained weight Link
