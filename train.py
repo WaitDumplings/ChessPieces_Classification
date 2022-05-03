@@ -22,7 +22,7 @@ print('Using {} for this project'.format(device))
 weight_path = "/Users/maojietang/Downloads/pre_efficientnetv2-s.pth"
 # Image_Loader and Label
 # path_root = '/content/drive/MyDrive'
-path_root = "/Users/maojietang/Downloads"
+path_root = "/Users/maojietang/Downloads/Chess_Piece_Data"
 image_path = os.path.join(path_root, 'Test_1(100%)')
 assert os.path.exists(image_path), "{} path does not exist.".format(image_path)
 
@@ -71,7 +71,7 @@ val_loader = torch.utils.data.DataLoader(val_dataset,
 # Transfer Learning
 model = efficientnetv2_s(num_classes=1000)
 
-model_path = torch.load(weight_path)
+model_path = torch.load(weight_path, map_location=torch.device('cpu'))
 model.load_state_dict(model_path)
 model.head.classifier = nn.Sequential(
     nn.Linear(in_features=1280, out_features=1000, bias=True),
